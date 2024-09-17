@@ -15,7 +15,7 @@ spec:
         io.kompose.service: kitchen-backend
     spec:
       containers:
-        - image: ghcr.io/startupnationlabs/micro-restaurant-nestjs-public/dining-service:main
+        - image: ghcr.io/startupnationlabs/micro-restaurant-nestjs-public/kitchen-service:main
           name: kitchen-backend
           ports:
             - containerPort: 3000
