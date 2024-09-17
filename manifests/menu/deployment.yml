@@ -27,5 +27,7 @@ spec:
             limits:
               cpu: "500m"
               memory: "512Mi"
-          env: [ ]
+          env:
+            - name: MONGODB_HOST
+              value: "prod-db-mongodb"
       restartPolicy: Always

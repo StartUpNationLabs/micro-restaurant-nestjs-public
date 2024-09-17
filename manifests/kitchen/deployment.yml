@@ -30,4 +30,6 @@ spec:
           env:
             - name: DINING_SERVICE_URL_WITH_PORT
               value: "dining-backend:3000"
+            - name: MONGODB_HOST
+              value: "prod-db-mongodb"
       restartPolicy: Always

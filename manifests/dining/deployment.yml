@@ -32,4 +32,6 @@ spec:
               value: "menu-backend:3000"
             - name: KITCHEN_SERVICE_URL_WITH_PORT
               value: "kitchen-backend:3000"
+            - name: MONGODB_HOST
+              value: "prod-db-mongodb"
       restartPolicy: Always
