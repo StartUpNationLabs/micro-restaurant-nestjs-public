@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-kitchen-backend
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    traefik.ingress.kubernetes.io/router.middlewares: default-redirect-https@kubernetescrd
+spec:
+  rules:
+    - host: kitchen-backend.spos.polytech.apoorva64.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name:  kitchen-backend
+                port:
+                  number: 3000
+  tls:
+    - hosts:
+        - kitchen-backend.spos.polytech.apoorva64.com
+      secretName: kitchen-backend.spos.polytech.apoorva64-tls
