@@ -33,7 +33,15 @@
     "mongoose": "^8.5.1",
     "reflect-metadata": "^0.2.2",
     "rimraf": "^6.0.1",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "@opentelemetry/auto-instrumentations-node": "^0.52.0",
+    "@opentelemetry/exporter-jaeger": "^1.27.0",
+    "@opentelemetry/exporter-trace-otlp-proto": "^0.54.0",
+    "@opentelemetry/instrumentation-express": "^0.44.0",
+    "@opentelemetry/instrumentation-http": "^0.54.0",
+    "@opentelemetry/instrumentation-nestjs-core": "^0.41.0",
+    "@opentelemetry/resources": "^1.27.0",
+    "@opentelemetry/semantic-conventions": "^1.27.0"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.4.2",

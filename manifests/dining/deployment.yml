@@ -34,4 +34,6 @@ spec:
               value: "kitchen-backend:3000"
             - name: MONGODB_HOST
               value: "prod-db-mongodb"
+            - name: OTLP_URL
+              value: "http://jaeger-collector:4318/v1/traces"
       restartPolicy: Always
