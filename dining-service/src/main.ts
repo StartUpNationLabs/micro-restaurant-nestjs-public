@@ -14,8 +14,11 @@ import { Resource } from '@opentelemetry/resources';
 // Don't forget to import the dotenv package!
 import { OTLPTraceExporter } from '@opentelemetry/exporter-trace-otlp-proto';
 import { RedisInstrumentation } from '@opentelemetry/instrumentation-redis-4';
+import process from "process";
 
 export const otelSDK = (serviceName: string, oltpUrl: string) => {
+  console.log('Starting tracing for service:', serviceName);
+  console.log('OTLP URL:', oltpUrl);
   const sdk = new NodeSDK({
     resource: new Resource({
       'service.name': serviceName,
@@ -50,7 +53,11 @@ export const otelSDK = (serviceName: string, oltpUrl: string) => {
 };
 
 async function bootstrap() {
-  otelSDK('dining-service', process.env.OTLP_URL || 'http://localhost:4318/v1/traces').start();
+  let oltpUrl = "http://localhost:4318/v1/traces";
+  if (process.env.OTLP_URL) {
+    oltpUrl = process.env.OTLP_URL;
+  }
+  otelSDK('dining-service', oltpUrl).start();
 
   const app = await NestFactory.create(AppModule);
   app.enableCors();
