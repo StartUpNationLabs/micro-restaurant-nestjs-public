@@ -15,7 +15,7 @@ spec:
         io.kompose.service: dining-backend
     spec:
       containers:
-        - image: ghcr.io/startupnationlabs/micro-restaurant-nestjs-public/dining-service:main
+        - image: ghcr.io/startupnationlabs/micro-restaurant-nestjs-public/dining-service:b056f76240f9c02f4a4145a3098b25f732ccb2c3
           name: dining-backend
           ports:
             - containerPort: 3000
@@ -35,5 +35,5 @@ spec:
             - name: MONGODB_HOST
               value: "prod-db-mongodb"
             - name: OTLP_URL
-              value: "http://jaeger-collector:4318/v1/traces"
+              value: "http://jaeger-collector.spos-prod.svc.cluster.local:4318/v1/traces"
       restartPolicy: Always
